@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 setup(
     name='EduCAT',
@@ -8,7 +8,8 @@ setup(
     packages=find_packages(),
     description=""" A CAT Framework """,
     long_description_content_type="text/markdown",
-    long_description=open('README.md').read(),
+    # ensure README is read using utf-8 to avoid encoding errors on Windows
+    long_description=open('README.md', encoding='utf-8').read(),
     url='https://github.com/bigdata-ustc/CAT',
     install_requires=[
         'torch',

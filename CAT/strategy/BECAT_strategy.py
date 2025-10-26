@@ -1,9 +1,11 @@
+import random
+
 import numpy as np
 
-from CAT.strategy.abstract_strategy import AbstractStrategy
-from CAT.model import AbstractModel
 from CAT.dataset import AdapTestDataset
-import random
+from CAT.model import AbstractModel
+from CAT.strategy.abstract_strategy import AbstractStrategy
+
 
 class BECATstrategy(AbstractStrategy):
     
@@ -14,7 +16,7 @@ class BECATstrategy(AbstractStrategy):
     def name(self):
         return 'BECAT Strategy'
     
-    def adaptest_select(self, model: AbstractModel, adaptest_data: AdapTestDataset,S_set):
+    def adaptest_select(self, model: AbstractModel, adaptest_data: AdapTestDataset, S_set):
         assert hasattr(model, 'delta_q_S_t'), \
             'the models must implement delta_q_S_t method'
         assert hasattr(model, 'get_pred'), \
